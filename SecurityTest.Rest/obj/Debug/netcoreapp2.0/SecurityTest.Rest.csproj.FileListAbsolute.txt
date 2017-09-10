@@ -9,3 +9,14 @@ C:\Users\Administrator\Documents\Visual Studio 2017\Projects\SecurityTest\Securi
 C:\Users\Administrator\Documents\Visual Studio 2017\Projects\SecurityTest\SecurityTest.Rest\bin\Debug\netcoreapp2.0\SecurityTest.Rest.pdb
 C:\Users\Administrator\Documents\Visual Studio 2017\Projects\SecurityTest\SecurityTest.Rest\obj\Debug\netcoreapp2.0\SecurityTest.Rest.dll
 C:\Users\Administrator\Documents\Visual Studio 2017\Projects\SecurityTest\SecurityTest.Rest\obj\Debug\netcoreapp2.0\SecurityTest.Rest.pdb
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\bin\Debug\netcoreapp2.0\SecurityTest.Rest.deps.json
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\bin\Debug\netcoreapp2.0\SecurityTest.Rest.runtimeconfig.json
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\bin\Debug\netcoreapp2.0\SecurityTest.Rest.runtimeconfig.dev.json
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\bin\Debug\netcoreapp2.0\SecurityTest.Rest.dll
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\bin\Debug\netcoreapp2.0\SecurityTest.Rest.pdb
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\obj\Debug\netcoreapp2.0\SecurityTest.Rest.csprojResolveAssemblyReference.cache
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\obj\Debug\netcoreapp2.0\SecurityTest.Rest.csproj.CoreCompileInputs.cache
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\obj\Debug\netcoreapp2.0\SecurityTest.Rest.AssemblyInfoInputs.cache
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\obj\Debug\netcoreapp2.0\SecurityTest.Rest.AssemblyInfo.cs
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\obj\Debug\netcoreapp2.0\SecurityTest.Rest.dll
+C:\Users\Melman\Documents\Git\securitytest\SecurityTest.Rest\obj\Debug\netcoreapp2.0\SecurityTest.Rest.pdb

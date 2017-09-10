@@ -4864,7 +4864,7 @@
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Iz7Wi3FbRT4zmDjQ23kEDpfvo4LYmwMU1PXbE3QAK3HHJSj6JWa5JRy7dcokaiguKMXIPSsD8u1c6DKfvNIa8A==",
+      "sha512": "sha512-HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
       "hashPath": "microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512"
     },
@@ -5942,7 +5942,7 @@
     "System.Linq.Queryable/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kIljPRpJ6BKcmwaejAfr8sJaCeEdsrKt0h7YYXagk3FZzEfkL2uCwnzRVXtFVtNwNL1RDPkUCJMbyPcF5iZOnQ==",
+      "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
     },
@@ -5998,7 +5998,7 @@
     "System.Private.DataContractSerialization/4.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-EDBE4dq3MGkEwgCpyo5PALV+/Bufcx5TAPFhb1NelrePPavyxTtaUW+5uQ1V+tguECDu0wV0sclKXB7pKMj6ew==",
+      "sha512": "sha512-lcqFBUaCZxPiUkA4dlSOoPZGtZsAuuElH2XHgLwGLxd7ZozWetV5yiz0qGAV2AUYOqw97MtZBjbLMN16Xz4vXA==",
       "path": "system.private.datacontractserialization/4.1.1",
       "hashPath": "system.private.datacontractserialization.4.1.1.nupkg.sha512"
     },
@@ -6124,7 +6124,7 @@
     "System.Runtime.Serialization.Json/4.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mZht7d1FUkqKZaAi9Jj+EHBfOLyKUARZ/J80kcLdIjy71lIfJbwRkfwqYmeC4DzLdrpCzQE/A2hPngjfiKA9hw==",
+      "sha512": "sha512-+7DIJhnKYgCzUgcLbVTtRQb2l1M0FP549XFlFkQM5lmNiUBl44AfNbx4bz61xA8PzLtlYwfmif4JJJW7MPPnjg==",
       "path": "system.runtime.serialization.json/4.0.2",
       "hashPath": "system.runtime.serialization.json.4.0.2.nupkg.sha512"
     },
@@ -6341,7 +6341,7 @@
     "System.Xml.XmlSerializer/4.0.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xr1ip2qKR/OZBtUsalo+E8inglm93uYYIKUf0JDzEsrfThWBxgeQwfYINoTPOIXVqMRGl0VmREs3V3GPVNzDxw==",
+      "sha512": "sha512-FrazwwqfIXTfq23mfv4zH+BjqkSFNaNFBtjzu3I9NRmG8EELYyrv/fJnttCIwRMFRR/YKXF1hmsMmMEnl55HGw==",
       "path": "system.xml.xmlserializer/4.0.11",
       "hashPath": "system.xml.xmlserializer.4.0.11.nupkg.sha512"
     },

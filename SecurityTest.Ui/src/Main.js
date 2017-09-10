@@ -43,20 +43,11 @@ class Main extends Component {
     render() {
         const { profile } = this.state;
 
-        let display = null;
-        if (profile) {
-            display = (
-                <div> { profile.name} </div>
-            );
-        } else {
-            display = (<Link to='/login'>Login</Link>);
-        }
-
         return (
             <div> 
                 <h2>Welcome welcome! </h2>
         
-                { display }
+                <div> { profile.name} </div>
             </div>
         );
     }

@@ -6065,17 +6065,17 @@
       ]
     },
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
-      "sha512": "Iz7Wi3FbRT4zmDjQ23kEDpfvo4LYmwMU1PXbE3QAK3HHJSj6JWa5JRy7dcokaiguKMXIPSsD8u1c6DKfvNIa8A==",
+      "sha512": "HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
       "type": "package",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
       "files": [
-        "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg.sha512",
-        "Microsoft.CodeAnalysis.Analyzers.nuspec",
         "ThirdPartyNotices.rtf",
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.Analyzers.dll",
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.CSharp.Analyzers.dll",
         "analyzers/dotnet/vb/Microsoft.CodeAnalysis.Analyzers.dll",
         "analyzers/dotnet/vb/Microsoft.CodeAnalysis.VisualBasic.Analyzers.dll",
+        "microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",
+        "microsoft.codeanalysis.analyzers.nuspec",
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]
@@ -10175,12 +10175,10 @@
       ]
     },
     "System.Linq.Queryable/4.0.1": {
-      "sha512": "kIljPRpJ6BKcmwaejAfr8sJaCeEdsrKt0h7YYXagk3FZzEfkL2uCwnzRVXtFVtNwNL1RDPkUCJMbyPcF5iZOnQ==",
+      "sha512": "Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
       "type": "package",
       "path": "system.linq.queryable/4.0.1",
       "files": [
-        "System.Linq.Queryable.4.0.1.nupkg.sha512",
-        "System.Linq.Queryable.nuspec",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/monoandroid10/_._",
@@ -10228,7 +10226,9 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._"
+        "ref/xamarinwatchos10/_._",
+        "system.linq.queryable.4.0.1.nupkg.sha512",
+        "system.linq.queryable.nuspec"
       ]
     },
     "System.Net.Http/4.3.0": {
@@ -10614,7 +10614,7 @@
       ]
     },
     "System.Private.DataContractSerialization/4.1.1": {
-      "sha512": "EDBE4dq3MGkEwgCpyo5PALV+/Bufcx5TAPFhb1NelrePPavyxTtaUW+5uQ1V+tguECDu0wV0sclKXB7pKMj6ew==",
+      "sha512": "lcqFBUaCZxPiUkA4dlSOoPZGtZsAuuElH2XHgLwGLxd7ZozWetV5yiz0qGAV2AUYOqw97MtZBjbLMN16Xz4vXA==",
       "type": "package",
       "path": "system.private.datacontractserialization/4.1.1",
       "files": [
@@ -11497,7 +11497,7 @@
       ]
     },
     "System.Runtime.Serialization.Json/4.0.2": {
-      "sha512": "mZht7d1FUkqKZaAi9Jj+EHBfOLyKUARZ/J80kcLdIjy71lIfJbwRkfwqYmeC4DzLdrpCzQE/A2hPngjfiKA9hw==",
+      "sha512": "+7DIJhnKYgCzUgcLbVTtRQb2l1M0FP549XFlFkQM5lmNiUBl44AfNbx4bz61xA8PzLtlYwfmif4JJJW7MPPnjg==",
       "type": "package",
       "path": "system.runtime.serialization.json/4.0.2",
       "files": [
@@ -12942,7 +12942,7 @@
       ]
     },
     "System.Xml.XmlSerializer/4.0.11": {
-      "sha512": "xr1ip2qKR/OZBtUsalo+E8inglm93uYYIKUf0JDzEsrfThWBxgeQwfYINoTPOIXVqMRGl0VmREs3V3GPVNzDxw==",
+      "sha512": "FrazwwqfIXTfq23mfv4zH+BjqkSFNaNFBtjzu3I9NRmG8EELYyrv/fJnttCIwRMFRR/YKXF1hmsMmMEnl55HGw==",
       "type": "package",
       "path": "system.xml.xmlserializer/4.0.11",
       "files": [
@@ -13115,7 +13115,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "C:\\Users\\Melman\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -13124,17 +13124,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Documents\\Visual Studio 2017\\Projects\\SecurityTest\\SecurityTest.Rest\\SecurityTest.Rest.csproj",
+      "projectUniqueName": "C:\\Users\\Melman\\Documents\\Git\\securitytest\\SecurityTest.Rest\\SecurityTest.Rest.csproj",
       "projectName": "SecurityTest.Rest",
-      "projectPath": "C:\\Users\\Administrator\\Documents\\Visual Studio 2017\\Projects\\SecurityTest\\SecurityTest.Rest\\SecurityTest.Rest.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Documents\\Visual Studio 2017\\Projects\\SecurityTest\\SecurityTest.Rest\\obj\\",
+      "projectPath": "C:\\Users\\Melman\\Documents\\Git\\securitytest\\SecurityTest.Rest\\SecurityTest.Rest.csproj",
+      "packagesPath": "C:\\Users\\Melman\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Melman\\Documents\\Git\\securitytest\\SecurityTest.Rest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Melman\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
