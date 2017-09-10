@@ -8,8 +8,11 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -32,7 +35,7 @@ namespace SecurityTest.Rest
         public static TokenValidationParameters TokenParameters => new TokenValidationParameters
         {
             ValidateAudience = true,
-            ValidAudience = "https://yourapplication.example.com",
+            ValidAudience = "https://localhost:5000/",
 
             ValidateLifetime = true,
 
@@ -44,7 +47,6 @@ namespace SecurityTest.Rest
 
         public static CookieBuilder CookieBuilder => new CookieBuilder
         {
-            Domain = "custom-auth",
             Expiration = TimeSpan.FromDays(30),
             HttpOnly = true,
             Name = "auth-wrapper",
@@ -54,19 +56,27 @@ namespace SecurityTest.Rest
     public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore();
-            services.AddAuthentication()
-                .AddCookie(options =>
+            services.AddAuthentication(options =>
                 {
-                    options.LoginPath = new PathString("/login");
-                    options.Events.OnValidatePrincipal = ctx =>
-                    {
-                        var requestCookie = ctx.Options.CookieManager.GetRequestCookie(ctx.HttpContext, ctx.Options.Cookie.Domain);
-                        ctx.HttpContext.Request.Headers.Add("Authentication", $"Bearer {requestCookie}");
-                        return Task.CompletedTask;
-                    };
-                    options.Cookie = CookieBuilder;
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
                 })
-                .AddJwtBearer(options => options.TokenValidationParameters = TokenParameters);
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = TokenParameters;
+                    options.Events = new JwtBearerEvents();
+                    options.Events.OnTokenValidated += context =>
+                    {
+                        if (context?.HttpContext == null)
+                        {
+                            return Task.CompletedTask;
+                        }
+
+                        return context.HttpContext.SignInAsync(context.Principal);
+                    };
+
+                });
         }
 
         private static X509Certificate2 GetX509Certificate2()
@@ -75,15 +85,6 @@ namespace SecurityTest.Rest
             var sec = new DirectoryInfo(currentDirectory).EnumerateDirectories().First(x => x.Name == "Security");
             var certFile = sec.EnumerateFiles().First(x => x.Extension.Contains("pfx"));
             var actualCert = new X509Certificate2(certFile.FullName, "password");
-            return actualCert;
-        }
-
-        private static X509Certificate2 GetX509Certificate2Key()
-        {
-            var currentDirectory = Directory.GetCurrentDirectory();
-            var sec = new DirectoryInfo(currentDirectory).EnumerateDirectories().First(x => x.Name == "Security");
-            var certFile = sec.EnumerateFiles().First(x => x.Extension.Contains("pfx"));
-            var actualCert = new X509Certificate2(certFile.FullName);
             return actualCert;
         }
 
@@ -104,6 +105,8 @@ namespace SecurityTest.Rest
             {
                 b.Use((context, next) =>
                 {
+                    var dp = (IDataProtectionProvider)b.ApplicationServices.GetService(typeof(IDataProtectionProvider));
+
                     var streamReader = new StreamReader(context.Request.Body);
                     var requestBody = streamReader.ReadToEnd();
                     streamReader.Dispose();
@@ -116,10 +119,10 @@ namespace SecurityTest.Rest
                         return context.Response.Body.WriteAsync(unauthorisedBytes, 0, unauthorisedBytes.Length);
                     }
 
-                    var token = new JwtSecurityToken(TokenParameters.ValidIssuer, null,
-                        new ClaimsIdentity().Claims, null, null,
+                    var token = new JwtSecurityToken(TokenParameters.ValidIssuer, TokenParameters.ValidAudience,
+                        new ClaimsIdentity().Claims, null, DateTime.UtcNow.AddDays(1),
                         new SigningCredentials(TokenParameters.IssuerSigningKey, SecurityAlgorithms.RsaSha256));
-
+                    
                     var bearerToken = new JwtSecurityTokenHandler().WriteToken(token);
 
                     context.Response.StatusCode = 200;
@@ -133,7 +136,38 @@ namespace SecurityTest.Rest
                 });
             });
 
+            app.Use((context, next) =>
+            {
+                if (context.Request.Cookies.Count <= 0)
+                {
+                    return next();
+                }
+
+                var authCookie = context.Request.Cookies.FirstOrDefault(x => x.Key == CookieBuilder.Name);
+
+                if (!authCookie.Equals(default(KeyValuePair<string, string>)))
+                {
+                    context.Request.Headers.Add("Authorization", $"Bearer {authCookie.Value}");
+                }
+
+                return next();
+            });
+
             app.UseAuthentication();
+
+            app.Use(async (context, next) =>
+            {
+                var user = context.User; // We can do this because of  options.AutomaticAuthenticate = true;
+                if (user?.Identity?.IsAuthenticated ?? false)
+                {
+                    await next();
+                }
+                else
+                {
+                    // We can do this because of options.AutomaticChallenge = true;
+                    await context.ChallengeAsync();
+                }
+            });
 
             app.UseMvc(routes =>
             {

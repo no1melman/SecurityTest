@@ -24,21 +24,45 @@ class LogIn extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const { history } = this.props;
+        const { history, location } = this.props;
 
         fetch('api/login', {
             method: 'POST',
+            credentials: 'same-origin',
             body: JSON.stringify(this.state)
         })
         .then(res => { if (res.status === 200) { return res.json(); } throw 'unauthed'; })
         .then(txt => {
             // we can move on here;
-            alert('You are logged in');
+            const returnUrl = this.extractReturnUrl();
+
+            history.push(returnUrl);
         })
         .catch(err => {
             console.warn(err);
             history.push('/failure');
         });
+    }
+
+    extractReturnUrl() {
+        const { location } = this.props;
+
+        const queries = location.search.substr(1).split('&');
+
+        const searchMap = queries.map(q => {
+            let parts = q.split('=');
+
+            if (parts.length === 1) {
+                parts = [parts[0], ''];
+            }
+
+            return { [parts[0]]: parts[1] };
+        })
+        .reduce((f, c) => Object.assign({}, f, c), {});
+
+        const returnUrl = searchMap['returnurl'];
+
+        return returnUrl;
     }
 
     render() {
