@@ -183,4 +183,37 @@ namespace SecurityTest.Rest
         public string UserName { get; set; }
         public string Password { get; set; }
     }
+
+    public class DIII : IAuthenticationSignInHandler
+    {
+        public Task InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<AuthenticateResult> AuthenticateAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ChallengeAsync(AuthenticationProperties properties)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ForbidAsync(AuthenticationProperties properties)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SignOutAsync(AuthenticationProperties properties)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SignInAsync(ClaimsPrincipal user, AuthenticationProperties properties)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
