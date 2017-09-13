@@ -16,6 +16,12 @@ namespace SecurityTest.Rest.Login
             this.securityTokenService = securityTokenService;
         }
 
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return this.View("Login");
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]UserLogin userLogin)
         {
