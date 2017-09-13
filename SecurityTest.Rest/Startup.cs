@@ -88,7 +88,9 @@ namespace SecurityTest.Rest
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            app.Map(new PathString("/api/login"), async b => b.UseClientAuthenticationServer(CookieBuilder, TokenParameters));
+            app.Map(new PathString("/api/login"), async b => b.UseMvc(
+                action => action.MapRoute("login", "login")
+                ));
 
             app.UseTokenExtraction(CookieBuilder);
 
