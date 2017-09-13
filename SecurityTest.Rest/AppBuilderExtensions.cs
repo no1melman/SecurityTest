@@ -16,9 +16,9 @@ namespace SecurityTest.Rest
             app.UseMiddleware<AuthenticateAllRequestsMiddleware>();
         }
 
-        public static void UseClientAuthenticationServer(this IApplicationBuilder app, CookieBuilder cookieBuilder, TokenValidationParameters tokenValidationParameters)
+        public static void UseClientAuthenticationServer(this IApplicationBuilder app)
         {
-            app.UseMiddleware<ClientAuthenticationServerMiddleware>(cookieBuilder, tokenValidationParameters, app.ApplicationServices.GetService(typeof(IClientAuthenticationHandler)));
+            app.UseMiddleware<ClientAuthenticationServerMiddleware>();
         }
     }
 }

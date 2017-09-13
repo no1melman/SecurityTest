@@ -63,6 +63,7 @@ namespace SecurityTest.Rest
                     options.Events = new JwtBearerEvents();
                 });
             services.AddTransient<IClientAuthenticationHandler, ClientAuthenticationHandler>();
+            services.AddSingleton<ISecurityConfiguration>(new SecurityConfiguration(CookieBuilder, TokenParameters));
         }
 
         private static X509Certificate2 GetX509Certificate2()

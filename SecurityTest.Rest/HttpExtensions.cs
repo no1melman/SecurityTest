@@ -10,10 +10,10 @@ namespace SecurityTest.Rest
 {
     public static class HttpExtensions
     {
-        public static T DeserialiseRequestBody<T>(this HttpContext ctx)
+        public static async Task<T> DeserialiseRequestBodyAsync<T>(this HttpContext ctx)
         {
             var streamReader = new StreamReader(ctx.Request.Body);
-            var requestBody = streamReader.ReadToEnd();
+            var requestBody = await streamReader.ReadToEndAsync();
             streamReader.Dispose();
             var type = JsonConvert.DeserializeObject<T>(requestBody);
             return type;

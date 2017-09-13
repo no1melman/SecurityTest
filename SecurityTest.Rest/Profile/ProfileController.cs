@@ -1,4 +1,7 @@
-﻿namespace SecurityTest.Rest.Profile
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace SecurityTest.Rest.Profile
 {
     using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +12,7 @@
         [HttpGet]
         public IActionResult Get()
         {
-            return this.Ok(new {Name = "Callum"});
+            return this.Ok(new {Claims = this.HttpContext.User.Claims.ToDictionary(x => x.Subject.ToString(), x => x.Value) });
         }
     }
 }
